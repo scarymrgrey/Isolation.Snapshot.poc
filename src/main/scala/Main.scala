@@ -8,6 +8,7 @@ import TransactionAux._
 import scala.collection.mutable.ArrayBuffer
 
 case class Cat(var legs: Int) extends TCloneable[Cat] {
+  var processed = false
   override def doClone(): Cat = Cat(legs)
 }
 

@@ -5,46 +5,46 @@ import org.scalameter.Bench.LocalTime
 import org.scalameter.Warmer.Default
 import org.scalameter.{Key, config}
 
-import scala.collection.mutable.ArrayBuffer
 import scala.concurrent.duration.Duration
-import scala.concurrent.{Await, ExecutionContext, Future}
+import scala.concurrent.{Await, ExecutionContext, ExecutionContextExecutor, Future}
 
-object TestAux {
-  def getStorage: Storage = {
-    val cat = Node(Cat(0), null, null, null, 0, 0)
-    val cats = ArrayBuffer(cat)
-    cat.collection = cats
 
-    val dog = Node(Dog(0), null, null, null, 0, 0)
-    val dogs = ArrayBuffer(dog)
-    dog.collection = dogs
-    Storage(cats, dogs)
-  }
-}
-
-object IsolationSnapshotBenchmark extends LocalTime {
-
+object ConcurrentInsertBenchmark extends LocalTime {
   def runInsert(): Unit = {
-    implicit val s: Storage = TestAux.getStorage
+    implicit val s: Storage = TestAux.initStorage
     val numJobs = 20000
     val numThreads = 4
 
     implicit val ec1 = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
 
-    val tasksCats = for (i <- 1 to numJobs / 2) yield Future {
+    val tasksCats = for (i <- 1 to numJobs) yield Future {
       Tx { implicit tx =>
 
-        insert(Cat(666))
+        insert(Cat(i))
 
-        val cat = query(_.cats) {
-          _.legs >= 0
+        query(_.cats) { c=>
+          !c.processed && c.legs % i == 0
+        }.headOption match {
+          case Some(x) => x.update(z => {
+            z.processed = true
+            insert(Dog(z.legs))
+          })
+          case None =>
         }
         commit
       }
     }(ec1)
+
     val tasks = tasksCats
     val aggregated = Future.sequence(tasks)
-    Await.result(aggregated, Duration(15, TimeUnit.SECONDS))
+    Await.result(aggregated, Duration(20, TimeUnit.SECONDS))
+
+    Tx { implicit tx =>
+      query(_.dogs) {
+        _ => true
+      } map(r => r.get(z => z.tails)) sortBy (r => r) foreach println
+
+    }
     println()
   }
 
