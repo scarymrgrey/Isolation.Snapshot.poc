@@ -1,14 +1,19 @@
+import scala.collection.mutable.ArrayBuffer
+
 class Tx(body: Tx => Unit, storage: Storage) {
 
   var state: List[Node[_]] = List()
 
-  def query[T <: TCloneable[T]](collection: Storage => List[Node[T]], predicate: T => Boolean): NodeTracker[T] = {
-    val head = collection(storage).filter(z => predicate(z.value)).head
-    new NodeTracker(head)
+  def query[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Seq[NodeTracker[T]] = {
+    collection(storage).filter(z => predicate(z.value)).map(NodeTracker(_))
   }
 
   def store(n: Node[_]): Unit = {
     state = n :: state
+  }
+
+  def insert[T <: TCloneable[T]](newVal: T): Unit = {
+    storage.insert(newVal)
   }
 
   def run(): Unit = body(this)
@@ -20,7 +25,6 @@ class Tx(body: Tx => Unit, storage: Storage) {
         if (el.branchFrom.next != null) {
           state = List()
           resetTx = true
-          //println("restart Tx")
         }
       }
       if (!resetTx)
@@ -30,7 +34,6 @@ class Tx(body: Tx => Unit, storage: Storage) {
     }
     if (resetTx)
       run()
-    //println("commit")
   }
 }
 
