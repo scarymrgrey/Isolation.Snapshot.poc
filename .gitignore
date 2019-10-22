@@ -1,2 +1,4 @@
 target/
-.idea/
+*.sc
+.idea
+.DS_Store
