@@ -38,11 +38,9 @@ object Main extends App {
 
         insert(Cat(666))
 
-        val cat = query(_.cats) {
+        val cat = queryOne(_.cats) {
           _.legs >= 0
         }
-        // val legs = cat.get(_.legs)
-        //cat.update(z => z.legs = z.legs + 1)
 
         commit
       }
@@ -52,7 +50,7 @@ object Main extends App {
     val tasksDogs = for (i <- 1 to numJobs/2) yield Future {
       Tx { implicit tx =>
 
-        val dog = query(_.dogs) {
+        val dog = queryOne(_.dogs) {
           _.tails >= 0
         }
 
@@ -69,13 +67,13 @@ object Main extends App {
 
     Tx { implicit tx =>
 
-      val q = query(_.cats) {
+      val q = queryOne(_.cats) {
         _.legs >= 0
       }
 
       println(q.head.get(_.legs))
 
-      val dogsTails = query(_.dogs) {
+      val dogsTails = queryOne(_.dogs) {
         _.tails >= 0
       }
       println(dogsTails.head.get(_.tails))

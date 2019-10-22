@@ -2,46 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00fd2ee4-8f05-4523-83be-5d93853d5eec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/scala/TestAux.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SnapshotIsolationSample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SnapshotIsolationSample.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/IsolationSnapshotBenchmark.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Cat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Dog$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Dog$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Dog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Dog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$1$$anonfun$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$1$$anonfun$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$1$$anonfun$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$1$$anonfun$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1$$anonfun$apply$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1$$anonfun$apply$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2$$anonfun$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2$$anonfun$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2$$anonfun$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2$$anonfun$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2$$anonfun$apply$3$$anonfun$apply$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2$$anonfun$apply$3$$anonfun$apply$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2$$anonfun$apply$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2$$anonfun$apply$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2$$anonfun$apply$mcV$sp$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4$$anonfun$apply$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$apply$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$apply$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$apply$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1$$anonfun$apply$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$$anonfun$start$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/Main$delayedInit$body.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/Main$delayedInit$body.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/IsolationSnapshotBenchmark$$anonfun$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/IsolationSnapshotBenchmark$$anonfun$2$$anonfun$apply$1$$anonfun$apply$mcV$sp$1$$anonfun$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/IsolationSnapshotBenchmark$$anonfun$2$$anonfun$apply$1$$anonfun$apply$mcV$sp$1$$anonfun$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/IsolationSnapshotBenchmark$$anonfun$2$$anonfun$apply$1$$anonfun$apply$mcV$sp$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/IsolationSnapshotBenchmark$$anonfun$2$$anonfun$apply$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/IsolationSnapshotBenchmark$$anonfun$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/IsolationSnapshotBenchmark$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/IsolationSnapshotBenchmark.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/TestAux$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/test-classes/TestAux$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/TestAux.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/test-classes/TestAux.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/_global/_global/checkBuildSources/_global/inputFileStamps/previous" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/_global/_global/checkBuildSources/_global/inputFileStamps/previous" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Tx.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Tx.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -63,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/Main.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="-514">
+              <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
               <folding>
                 <element signature="e#1#50#0" expanded="true" />
               </folding>
@@ -78,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/TransactionAux.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="168">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -87,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/Node.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
+            <state relative-caret-position="41">
               <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
             </state>
           </provider>
@@ -96,11 +60,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+            <state relative-caret-position="-65">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/TCloneable.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -114,20 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/Storage.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.1/scala-library-2.11.1-sources.jar!/scala/collection/mutable/ArrayBuffer.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="966">
-              <caret line="53" column="15" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
+            <state relative-caret-position="-65">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -144,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/Tx.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="154">
+              <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -184,13 +148,13 @@
         <option value="$PROJECT_DIR$/src/main/scala/tools/TransactionAux.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/Node.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/NodeTracker.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/Tx.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/Main.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/IsolationSnapshotBenchmark.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/TestAux.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/Storage.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/Tx.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/Main.scala" />
       </list>
     </option>
   </component>
@@ -420,7 +384,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32994187" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3241279" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3241279" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39534885" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -431,7 +395,7 @@
       <window_info anchor="bottom" id="Educational.CheckDetails" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.31686047" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.31686047" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -464,6 +428,12 @@
             <option name="lambda-ordinal" value="-1" />
           </properties>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/Tx.scala</url>
+          <line>12</line>
+          <properties />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -538,13 +508,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tools/TransactionAux.scala" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/TCloneable.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.1/scala-library-2.11.1-sources.jar!/scala/collection/mutable/Buffer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -556,13 +519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/Node.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -580,6 +536,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/TCloneable.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/Storage.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/NodeTracker.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -587,9 +562,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/Node.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-244" />
+        <state relative-caret-position="41">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/Tx.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/TestAux.scala">
@@ -599,44 +583,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/Main.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/TransactionAux.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#1#50#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        <state relative-caret-position="-65">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/Tx.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/Main.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/TransactionAux.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/Storage.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state relative-caret-position="-514">
+          <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+          <folding>
+            <element signature="e#1#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

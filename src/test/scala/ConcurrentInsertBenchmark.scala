@@ -1,6 +1,6 @@
 import java.util.concurrent.{Executors, TimeUnit}
 
-import TransactionAux.{commit, insert, query}
+import TransactionAux.{commit, insert, queryOne, queryAll}
 import org.scalameter.Bench.LocalTime
 import org.scalameter.Warmer.Default
 import org.scalameter.{Key, config}
@@ -22,9 +22,9 @@ object ConcurrentInsertBenchmark extends LocalTime {
 
         insert(Cat(i))
 
-        query(_.cats) { c=>
+        queryOne(_.cats) { c =>
           !c.processed && c.legs % i == 0
-        }.headOption match {
+        } match {
           case Some(x) => x.update(z => {
             z.processed = true
             insert(Dog(z.legs))
@@ -33,25 +33,25 @@ object ConcurrentInsertBenchmark extends LocalTime {
         }
         commit
       }
-    }(ec1)
+    }
 
     val tasks = tasksCats
     val aggregated = Future.sequence(tasks)
     Await.result(aggregated, Duration(20, TimeUnit.SECONDS))
 
     Tx { implicit tx =>
-      query(_.dogs) {
+      queryAll(_.dogs) {
         _ => true
-      } map(r => r.get(z => z.tails)) sortBy (r => r) foreach println
-
+      }.map(r => r.get(z => z.tails))
+        .sortBy(r => r)
+        .foreach(println)
     }
-    println()
   }
 
   val standardConfig = config(
-    Key.exec.minWarmupRuns -> 5,
-    Key.exec.maxWarmupRuns -> 10,
-    Key.exec.benchRuns -> 10,
+    Key.exec.minWarmupRuns -> 3,
+    Key.exec.maxWarmupRuns -> 5,
+    Key.exec.benchRuns -> 5,
     Key.verbose -> true
   ) withWarmer new Default
 
