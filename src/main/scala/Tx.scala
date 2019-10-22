@@ -5,7 +5,7 @@ class Tx(body: Tx => Unit, storage: Storage) {
   var state: List[Node[_]] = List()
 
   def queryAll[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Seq[NodeTracker[T]] = {
-    collection(storage).filter(z => predicate(z.value)).map(NodeTracker(_))
+    collection(storage).filter(z => predicate(z.value)).map(NodeTracker(_)).toSeq
   }
 
   def queryOne[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Option[NodeTracker[T]] = {
