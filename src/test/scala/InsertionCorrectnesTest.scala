@@ -12,7 +12,7 @@ class ExampleSpec extends FlatSpec with Matchers {
 
   "A Stack" should "pop values in last-in-first-out order" in {
     implicit val s: Storage = TestAux.initStorage
-    val numJobs = 30000
+    val numJobs = 100
     val numThreads = 8
 
     implicit val ec1 = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
@@ -59,6 +59,12 @@ class ExampleSpec extends FlatSpec with Matchers {
       }.map(r => r.get(z => z.tails))
         .sortBy(r => r)
         tails should not be empty
+
+      val legs = queryAll(_.cats) {
+        _ => true
+      }.map(r => r.get(z => z.legs))
+        .sortBy(r => r)
+        legs should not be empty
     }
   }
 }
