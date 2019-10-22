@@ -6,7 +6,7 @@ object TestAux {
     val cats: ArrayBuffer[Node[Cat]] = ArrayBuffer(cat)
     cat.collection = cats
 
-    val dog = Node(Dog(0), null, null, null, 0, 0)
+    val dog = Node(Dog(-1), null, null, null, 0, 0)
     val dogs: ArrayBuffer[Node[Dog]] = ArrayBuffer(dog)
     dog.collection = dogs
     Storage(cats, dogs)

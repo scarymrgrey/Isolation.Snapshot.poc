@@ -6,13 +6,13 @@ import org.scalameter.Warmer.Default
 import org.scalameter.{Key, config}
 
 import scala.concurrent.duration.Duration
-import scala.concurrent.{Await, ExecutionContext, ExecutionContextExecutor, Future}
+import scala.concurrent.{Await, ExecutionContext, Future}
 
 
 object ConcurrentInsertBenchmark extends LocalTime {
   def runInsert(): Unit = {
     implicit val s: Storage = TestAux.initStorage
-    val numJobs = 20000
+    val numJobs = 30000
     val numThreads = 4
 
     implicit val ec1 = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
@@ -22,13 +22,16 @@ object ConcurrentInsertBenchmark extends LocalTime {
 
         insert(Cat(i))
 
-        queryOne(_.cats) { c =>
-          !c.processed && c.legs % i == 0
-        } match {
-          case Some(x) => x.update(z => {
-            z.processed = true
-            insert(Dog(z.legs))
-          })
+        val option = queryOne(_.cats) { c =>
+          !c.processed && c.legs > 0 //&& c.legs % i == 0
+        }
+        option match {
+          case Some(x) =>
+            x.update(z => {
+              z.processed = true
+            })
+            val legs = x.get(z => z.legs)
+            insert(Dog(legs))
           case None =>
         }
         commit

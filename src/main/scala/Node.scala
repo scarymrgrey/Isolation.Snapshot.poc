@@ -4,7 +4,7 @@ case class Node[T <: TCloneable[T]](value: T,
                                     var branchFrom: Node[T],
                                     var next: Node[T],
                                     var collection: ArrayBuffer[Node[T]],
-                                    index: Int,
+                                    var index: Int,
                                     v: Int) {
 
   def update(upd: T => Unit): Node[T] = {
@@ -12,6 +12,6 @@ case class Node[T <: TCloneable[T]](value: T,
     upd(newVal)
     Node(newVal, this, null, collection, index, v + 1)
   }
-
   def get[Z](prop: T => Z): Z = prop(value)
 }
+
