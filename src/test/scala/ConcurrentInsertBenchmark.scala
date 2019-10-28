@@ -23,18 +23,18 @@ object ConcurrentInsertBenchmark extends LocalTime {
         insert(Cat(i))
 
         val option = queryOne(_.cats) { c =>
-          !c.processed && c.legs > 0 //&& c.legs % i == 0
+          !c.processed.get()  //&& c.legs % i == 0
         }
         option match {
           case Some(x) =>
             x.update(z => {
-              z.processed = true
+              z.processed.set(true)
             })
             val legs = x.get(z => z.legs)
             insert(Dog(legs))
           case None =>
         }
-        commit
+        commit(i)
       }
     }
 

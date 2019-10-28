@@ -7,5 +7,5 @@ object TransactionAux {
 
   def insert[T <: TCloneable[T]](newVal: T)(implicit tx: Tx): Unit = tx.insert(newVal)
 
-  def commit(implicit tx: Tx): Unit = tx.commit()
+  def commit(n: Int)(implicit tx: Tx): Unit = tx.commit(n)
 }

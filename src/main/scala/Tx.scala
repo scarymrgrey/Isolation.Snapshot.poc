@@ -1,3 +1,5 @@
+import java.util.concurrent.atomic.AtomicReference
+
 import scala.collection.mutable.ArrayBuffer
 
 class Tx(body: Tx => Unit, storage: Storage) {
@@ -10,7 +12,9 @@ class Tx(body: Tx => Unit, storage: Storage) {
 
   def queryOne[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Option[NodeTracker[T]] = {
     val buffer = collection(storage)
+    //storage.synchronized {
     buffer.find(z => predicate(z.value)).map(NodeTracker(_))
+    //}
   }
 
   def store(n: Node[_]): Unit = {
@@ -23,18 +27,29 @@ class Tx(body: Tx => Unit, storage: Storage) {
 
   def run(): Unit = body(this)
 
-  def commit[T <: TCloneable[T]](): Unit = {
+  def commit[T <: TCloneable[T]](n: Int): Unit = {
     var resetTx = false
     storage.synchronized {
       for (el <- state) {
-        if (el.branchFrom != null && el.branchFrom.next != null) {
+        if (el.index != -1 && el.branchFrom.next != null) {
           state = List()
           resetTx = true
+          println("reset TX: " + n)
         }
       }
       if (!resetTx)
         state.foreach {
-          el => storage.refreshVersion(el.asInstanceOf[Node[T]])
+
+          el =>
+            el.value match {
+              case d: Dog =>
+                val alreadyHas = storage.dogs.exists(z => z.value.tails == d.tails)
+                if (alreadyHas)
+                  println("alert!")
+              case _ =>
+            }
+
+            storage.refreshVersion(el.asInstanceOf[Node[T]])
         }
     }
     if (resetTx)

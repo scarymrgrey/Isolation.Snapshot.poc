@@ -1,4 +1,5 @@
 
+import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.{Executors, TimeUnit}
 
 import scala.concurrent.duration.Duration
@@ -8,7 +9,8 @@ import TransactionAux._
 import scala.collection.mutable.ArrayBuffer
 
 case class Cat(var legs: Int) extends TCloneable[Cat] {
-  var processed = false
+  @volatile var processed: AtomicBoolean = new AtomicBoolean(false)
+
   override def doClone(): Cat = Cat(legs)
 }
 
@@ -19,11 +21,11 @@ case class Dog(var tails: Int) extends TCloneable[Dog] {
 object Main extends App {
   def start(): Unit = {
 
-    val cat = Node(Cat(0), null, null, null,0, 0)
+    val cat = Node(Cat(0), null, null, null, 0, 0)
     val cats: ArrayBuffer[Node[Cat]] = ArrayBuffer(cat)
     cat.collection = cats
 
-    val dog = Node(Dog(0), null, null, null,0, 0)
+    val dog = Node(Dog(0), null, null, null, 0, 0)
     val dogs: ArrayBuffer[Node[Dog]] = ArrayBuffer(dog)
     dog.collection = dogs
     implicit val s: Storage = Storage(cats, dogs)
@@ -42,12 +44,12 @@ object Main extends App {
           _.legs >= 0
         }
 
-        commit
+        commit(i)
       }
     }(ec1)
 
     implicit val ec2: ExecutionContextExecutor = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(1))
-    val tasksDogs = for (i <- 1 to numJobs/2) yield Future {
+    val tasksDogs = for (i <- 1 to numJobs / 2) yield Future {
       Tx { implicit tx =>
 
         val dog = queryOne(_.dogs) {
@@ -61,7 +63,7 @@ object Main extends App {
     }(ec2)
 
     val tasks = tasksCats ++ tasksDogs
-    val aggregated = Future.sequence(tasks)//(ec1)
+    val aggregated = Future.sequence(tasks) //(ec1)
     Await.result(aggregated, Duration(15, TimeUnit.SECONDS))
 
 
