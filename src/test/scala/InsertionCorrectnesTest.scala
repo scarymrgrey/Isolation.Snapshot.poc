@@ -1,5 +1,3 @@
-import java.time.Instant
-import java.util.concurrent.locks.{ReadWriteLock, ReentrantReadWriteLock}
 import java.util.concurrent.{Executors, TimeUnit}
 
 import TransactionAux.{commit, insert, queryAll, queryOne}
@@ -10,7 +8,7 @@ import scala.concurrent.duration.Duration
 
 class ExampleSpec extends FlatSpec with Matchers {
 
-  "A Stack" should "pop values in last-in-first-out order" in {
+  "Transaction" should "update and insert entities concurrently" in {
     implicit val s: Storage = TestAux.initStorage
     val numJobs = 10000
     val numThreads = 8
@@ -19,24 +17,21 @@ class ExampleSpec extends FlatSpec with Matchers {
 
     val tasksCats = for (i <- 1 to numJobs) yield Future {
       Tx { implicit tx =>
-        println(s"Tx($i) Start_Tx Ts(${System.nanoTime()})")
         insert(new Cat(i))
 
-        val option = queryOne(_.cats)(i) { c =>
+        val option = queryOne(_.cats){ c =>
           !c.processed
         }
         option match {
           case Some(x) =>
-            println(s"Tx($i) Map Ts(${System.nanoTime()}): " + x.node.getValue.toString)
             x.update(z => {
               z.processed = true
-              println(s"Tx($i) Update Ts(${System.nanoTime()}): " + z.toString)
-            })(i)
+            })
             val legs = x.get(z => z.legs)
             insert(new Dog(legs))
           case None =>
         }
-        commit(i)
+        commit
       }
     }
 
@@ -49,11 +44,11 @@ class ExampleSpec extends FlatSpec with Matchers {
         !c.processed
       }
       cats.foreach(c => {
-        c.update(z => z.processed = true)(0)
+        c.update(z => z.processed = true)
         insert(new Dog(c.get(f => f.legs)))
       })
 
-      commit(0)
+      commit
     }
     Tx { implicit tx =>
       val tails = queryAll(_.dogs) {

@@ -17,7 +17,7 @@ case class Storage(cats: ArrayBuffer[Node[Cat]], dogs: ArrayBuffer[Node[Dog]]) {
   }
 
   private def insert[T <: TCloneable[T]](newVal: Node[T]): Unit = {
-    val coll = (newVal.getValue match {
+    val coll = (newVal.get(z=>z) match {
       case c: Cat =>
         cats
       case d: Dog =>

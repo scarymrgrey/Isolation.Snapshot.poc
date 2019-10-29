@@ -9,20 +9,18 @@ class Tx(body: Tx => Unit, storage: Storage) {
   var state: List[Node[_]] = List()
 
   def queryAll[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Seq[NodeTracker[T]] = {
-    collection(storage).filter(z => predicate(z.getValue)).map(z => new NodeTracker(z)).toSeq
+    collection(storage)
+      .filter(z => predicate(z.get(f => f)))
+      .map(z => new NodeTracker(z))
   }
 
-  def queryOne[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean, n: Int): Option[NodeTracker[T]] = {
-    val buffer = collection(storage).toArray
-    //storage.synchronized {
-    buffer.find(z => predicate(z.getValue)).map(z => {
-      println(s"Tx($n) INNER_MAP TS(${System.nanoTime()}): " + z.getValue.toString)
-      val newZ = z
-      println(s"Tx($n) newZ(${newZ.getValue}) = z.get(${z.getValue}) TS(${System.nanoTime()})")
-      new NodeTracker(newZ)
-    })
-
-    //}
+  def queryOne[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Option[NodeTracker[T]] = {
+    collection(storage)
+      .toArray
+      .find(z => z.test(predicate))
+      .map(z => {
+        new NodeTracker(z)
+      })
   }
 
   def store(n: Node[_]): Unit = {
@@ -35,31 +33,20 @@ class Tx(body: Tx => Unit, storage: Storage) {
 
   def run(): Unit = body(this)
 
-  def commit[T <: TCloneable[T]](n: Int): Unit = {
+  def commit[T <: TCloneable[T]](): Unit = {
     var resetTx = false
     storage.synchronized {
-      println(s"Tx($n) Start_Commit Ts(${System.nanoTime()})")
       for (el <- state) {
         if (el.index != -1 && el.branchFrom.next != null) {
           state = List()
           resetTx = true
-          println(s"Tx($n) Reset Ts(${System.nanoTime()})")
         }
       }
       if (!resetTx) {
         state.foreach {
           el =>
-            el.getValue match {
-              case d: Dog =>
-                val alreadyHas = storage.dogs.exists(z => z.getValue.tails == d.tails)
-                if (alreadyHas)
-                  println("alert!")
-              case _ =>
-            }
-
             storage.refreshVersion(el.asInstanceOf[Node[T]])
         }
-        println(s"Tx($n) End_Commit Ts(${System.nanoTime()})")
       }
     }
     if (resetTx)

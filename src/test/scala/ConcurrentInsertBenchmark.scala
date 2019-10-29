@@ -13,7 +13,7 @@ object ConcurrentInsertBenchmark extends LocalTime {
   def runInsert(): Unit = {
     implicit val s: Storage = TestAux.initStorage
     val numJobs = 30000
-    val numThreads = 4
+    val numThreads = 8
 
     implicit val ec1 = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
 
@@ -22,33 +22,25 @@ object ConcurrentInsertBenchmark extends LocalTime {
 
         insert(new Cat(i))
 
-        val option = queryOne(_.cats)(i) { c =>
-          !c.processed  //&& c.legs % i == 0
+        val option = queryOne(_.cats) { c =>
+          !c.processed //&& c.legs % i == 0
         }
         option match {
           case Some(x) =>
             x.update(z => {
               z.processed = true
-            })(i)
+            })
             val legs = x.get(z => z.legs)
             insert(new Dog(legs))
           case None =>
         }
-        commit(i)
+        commit
       }
     }
 
     val tasks = tasksCats
     val aggregated = Future.sequence(tasks)
     Await.result(aggregated, Duration(20, TimeUnit.SECONDS))
-
-    Tx { implicit tx =>
-      queryAll(_.dogs) {
-        _ => true
-      }.map(r => r.get(z => z.tails))
-        .sortBy(r => r)
-        .foreach(println)
-    }
   }
 
   val standardConfig = config(
@@ -58,8 +50,8 @@ object ConcurrentInsertBenchmark extends LocalTime {
     Key.verbose -> true
   ) withWarmer new Default
 
-  val seqtime = standardConfig measure {
+  val time = standardConfig measure {
     runInsert()
   }
-  println(s"Tx: $seqtime ms")
+  println(s"Tx: $time")
 }

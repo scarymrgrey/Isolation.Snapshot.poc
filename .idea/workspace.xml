@@ -11,7 +11,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/scala/Tx.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Tx.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/scala/InsertionCorrectnesTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/InsertionCorrectnesTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/TestAux.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/TestAux.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="ScalaTest.ExampleSpec">
+  <component name="RunManager" selected="Application.ConcurrentInsertBenchmark">
     <configuration name="ConcurrentInsertBenchmark" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ConcurrentInsertBenchmark" />
       <module name="SnapshotIsolationSample" />
@@ -109,8 +108,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="ScalaTest.ExampleSpec" />
         <item itemvalue="Application.ConcurrentInsertBenchmark" />
+        <item itemvalue="ScalaTest.ExampleSpec" />
         <item itemvalue="Application.Main" />
         <item itemvalue="ScalaTest.ExampleSpec.A Stack should pop values in last-in-first-out order" />
       </list>
@@ -213,11 +212,6 @@
           <url>file://$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala</url>
           <line>22</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/main/scala/Tx.scala</url>
-          <line>55</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
