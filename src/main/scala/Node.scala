@@ -1,5 +1,3 @@
-import java.util.concurrent.atomic.AtomicReference
-
 import scala.collection.mutable.ArrayBuffer
 
 class Node[T <: TCloneable[T]](value: T,

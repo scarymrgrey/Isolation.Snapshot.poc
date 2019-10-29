@@ -4,9 +4,9 @@
     <list default="true" id="1e7af177-fd7c-4594-81bd-dd68a6827b14" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Node.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Node.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/NodeTracker.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/NodeTracker.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Tx.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Tx.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/InsertionCorrectnesTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/TxInsertionSpec.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/TxInsertionSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/TxInsertionSpec.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ConcurrentInsertBenchmark">
+  <component name="RunManager" selected="ScalaTest.TxInsertionSpec.Transaction should update and insert entities concurrently">
     <configuration name="ConcurrentInsertBenchmark" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ConcurrentInsertBenchmark" />
       <module name="SnapshotIsolationSample" />
@@ -125,8 +125,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConcurrentInsertBenchmark" />
         <item itemvalue="ScalaTest.TxInsertionSpec.Transaction should update and insert entities concurrently" />
+        <item itemvalue="Application.ConcurrentInsertBenchmark" />
         <item itemvalue="ScalaTest.ExampleSpec" />
         <item itemvalue="Application.Main" />
         <item itemvalue="ScalaTest.ExampleSpec.A Stack should pop values in last-in-first-out order" />
