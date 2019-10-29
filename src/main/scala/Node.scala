@@ -8,6 +8,7 @@ class Node[T <: TCloneable[T]](value: T,
                                var collection: ArrayBuffer[Node[T]],
                                var index: Int,
                                v: Int) {
+
   def update(upd: T => Unit): Node[T] = {
     val newVal = value.doClone()
     upd(newVal)
@@ -16,8 +17,8 @@ class Node[T <: TCloneable[T]](value: T,
 
   def get[Z](prop: T => Z): Z = prop(value)
 
-  def test(predicate: T => Boolean): Boolean = {
-    predicate(value)
-  }
+  def test(predicate: T => Boolean): Boolean = predicate(value)
+
 }
+
 

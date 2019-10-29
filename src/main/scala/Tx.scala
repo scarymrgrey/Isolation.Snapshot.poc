@@ -10,17 +10,16 @@ class Tx(body: Tx => Unit, storage: Storage) {
 
   def queryAll[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Seq[NodeTracker[T]] = {
     collection(storage)
-      .filter(z => predicate(z.get(f => f)))
+      .withFilter(z => z.test(predicate))
       .map(z => new NodeTracker(z))
   }
 
   def queryOne[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Option[NodeTracker[T]] = {
     collection(storage)
-      .toArray
-      .find(z => z.test(predicate))
+      .withFilter(z => z.test(predicate))
       .map(z => {
         new NodeTracker(z)
-      })
+      }).headOption
   }
 
   def store(n: Node[_]): Unit = {

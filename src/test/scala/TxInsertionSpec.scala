@@ -6,7 +6,7 @@ import org.scalatest._
 import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.concurrent.duration.Duration
 
-class ExampleSpec extends FlatSpec with Matchers {
+class TxInsertionSpec extends FlatSpec with Matchers {
 
   "Transaction" should "update and insert entities concurrently" in {
     implicit val s: Storage = TestAux.initStorage

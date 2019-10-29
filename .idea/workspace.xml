@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1e7af177-fd7c-4594-81bd-dd68a6827b14" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Node.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Node.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/NodeTracker.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/NodeTracker.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Storage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Storage.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Tx.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Tx.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/InsertionCorrectnesTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/InsertionCorrectnesTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/InsertionCorrectnesTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/TxInsertionSpec.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,9 +102,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TxInsertionSpec.Transaction should update and insert entities concurrently" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="SnapshotIsolationSample" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="testKind" value="Class" />
+      <option name="envs">
+        <map />
+      </option>
+      <option name="javaOptions" value="" />
+      <option name="jrePath" />
+      <option name="searchTest" value="Across module dependencies" />
+      <option name="showProgressMessages" value="true" />
+      <option name="testArgs" value="" />
+      <option name="testClassPath" value="TxInsertionSpec" />
+      <option name="testName" value="Transaction should update and insert entities concurrently" />
+      <option name="useSbt" value="false" />
+      <option name="useUiWithSbt" value="false" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ConcurrentInsertBenchmark" />
+        <item itemvalue="ScalaTest.TxInsertionSpec.Transaction should update and insert entities concurrently" />
         <item itemvalue="ScalaTest.ExampleSpec" />
         <item itemvalue="Application.Main" />
         <item itemvalue="ScalaTest.ExampleSpec.A Stack should pop values in last-in-first-out order" />
