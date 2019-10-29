@@ -1,3 +1,5 @@
+import java.util.concurrent.atomic.AtomicReference
+
 import scala.collection.mutable.ArrayBuffer
 
 case class Storage(cats: ArrayBuffer[Node[Cat]], dogs: ArrayBuffer[Node[Dog]]) {
@@ -15,13 +17,13 @@ case class Storage(cats: ArrayBuffer[Node[Cat]], dogs: ArrayBuffer[Node[Dog]]) {
   }
 
   private def insert[T <: TCloneable[T]](newVal: Node[T]): Unit = {
-    val coll = (newVal.value match {
+    val coll = (newVal.getValue match {
       case c: Cat =>
         cats
       case d: Dog =>
         dogs
     }).asInstanceOf[ArrayBuffer[Node[T]]]
-    newVal.collection = coll
+    newVal.collection  = coll
     newVal.index = coll.length
     coll += newVal
   }

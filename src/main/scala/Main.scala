@@ -1,5 +1,4 @@
 
-import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.{Executors, TimeUnit}
 
 import scala.concurrent.duration.Duration
@@ -8,24 +7,26 @@ import TransactionAux._
 
 import scala.collection.mutable.ArrayBuffer
 
-case class Cat(var legs: Int) extends TCloneable[Cat] {
-  @volatile var processed: AtomicBoolean = new AtomicBoolean(false)
+class Cat(var legs: Int) extends TCloneable[Cat] {
+  @volatile var processed = false
+  val uuid = java.util.UUID.randomUUID.toString.take(4)
+  override def doClone(): Cat = new Cat(legs)
 
-  override def doClone(): Cat = Cat(legs)
+  override def toString: String = s"cat($legs,$processed)@$uuid"
 }
 
-case class Dog(var tails: Int) extends TCloneable[Dog] {
-  override def doClone(): Dog = Dog(tails)
+class Dog(var tails: Int) extends TCloneable[Dog] {
+  override def doClone(): Dog = new Dog(tails)
 }
 
 object Main extends App {
   def start(): Unit = {
 
-    val cat = Node(Cat(0), null, null, null, 0, 0)
-    val cats: ArrayBuffer[Node[Cat]] = ArrayBuffer(cat)
+    val cat = new Node(new Cat(0), null, null, null, 0, 0)
+    val cats  = ArrayBuffer(cat)
     cat.collection = cats
 
-    val dog = Node(Dog(0), null, null, null, 0, 0)
+    val dog = new Node(new Dog(0), null, null, null, 0, 0)
     val dogs: ArrayBuffer[Node[Dog]] = ArrayBuffer(dog)
     dog.collection = dogs
     implicit val s: Storage = Storage(cats, dogs)
@@ -38,9 +39,9 @@ object Main extends App {
     val tasksCats = for (i <- 1 to numJobs / 2) yield Future {
       Tx { implicit tx =>
 
-        insert(Cat(666))
+        insert(new Cat(666))
 
-        val cat = queryOne(_.cats) {
+        val cat = queryOne(_.cats)(i) {
           _.legs >= 0
         }
 
@@ -52,11 +53,11 @@ object Main extends App {
     val tasksDogs = for (i <- 1 to numJobs / 2) yield Future {
       Tx { implicit tx =>
 
-        val dog = queryOne(_.dogs) {
+        val dog = queryOne(_.dogs)(i) {
           _.tails >= 0
         }
 
-        dog.foreach(_.update(z => z.tails = z.tails + 1))
+        dog.foreach(_.update(z => z.tails = z.tails + 1)(i))
 
         //commit
       }
@@ -69,13 +70,13 @@ object Main extends App {
 
     Tx { implicit tx =>
 
-      val q = queryOne(_.cats) {
+      val q = queryOne(_.cats)(0) {
         _.legs >= 0
       }
 
       println(q.head.get(_.legs))
 
-      val dogsTails = queryOne(_.dogs) {
+      val dogsTails = queryOne(_.dogs)(0) {
         _.tails >= 0
       }
       println(dogsTails.head.get(_.tails))

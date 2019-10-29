@@ -1,3 +1,4 @@
+import java.time.Instant
 import java.util.concurrent.locks.{ReadWriteLock, ReentrantReadWriteLock}
 import java.util.concurrent.{Executors, TimeUnit}
 
@@ -11,25 +12,28 @@ class ExampleSpec extends FlatSpec with Matchers {
 
   "A Stack" should "pop values in last-in-first-out order" in {
     implicit val s: Storage = TestAux.initStorage
-    val numJobs = 100
+    val numJobs = 10000
     val numThreads = 8
 
     implicit val ec1 = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
 
     val tasksCats = for (i <- 1 to numJobs) yield Future {
       Tx { implicit tx =>
-        insert(Cat(i))
+        println(s"Tx($i) Start_Tx Ts(${System.nanoTime()})")
+        insert(new Cat(i))
 
-        val option = queryOne(_.cats) { c =>
-          !c.processed.get()
+        val option = queryOne(_.cats)(i) { c =>
+          !c.processed
         }
         option match {
           case Some(x) =>
-             x.update(z => {
-               z.processed.set(true)
-              })
+            println(s"Tx($i) Map Ts(${System.nanoTime()}): " + x.node.getValue.toString)
+            x.update(z => {
+              z.processed = true
+              println(s"Tx($i) Update Ts(${System.nanoTime()}): " + z.toString)
+            })(i)
             val legs = x.get(z => z.legs)
-          insert(Dog(legs))
+            insert(new Dog(legs))
           case None =>
         }
         commit(i)
@@ -39,14 +43,14 @@ class ExampleSpec extends FlatSpec with Matchers {
     val tasks = tasksCats
     val aggregated = Future.sequence(tasks)
     Await.result(aggregated, Duration(20, TimeUnit.SECONDS))
-    Tx { implicit tx =>
+    Tx { implicit tx: Tx =>
 
       val cats = queryAll(_.cats) { c =>
-        !c.processed.get()
+        !c.processed
       }
-
       cats.foreach(c => {
-        //insert(Dog(c.get(_.legs)))
+        c.update(z => z.processed = true)(0)
+        insert(new Dog(c.get(f => f.legs)))
       })
 
       commit(0)

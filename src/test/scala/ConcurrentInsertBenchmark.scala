@@ -20,18 +20,18 @@ object ConcurrentInsertBenchmark extends LocalTime {
     val tasksCats = for (i <- 1 to numJobs) yield Future {
       Tx { implicit tx =>
 
-        insert(Cat(i))
+        insert(new Cat(i))
 
-        val option = queryOne(_.cats) { c =>
-          !c.processed.get()  //&& c.legs % i == 0
+        val option = queryOne(_.cats)(i) { c =>
+          !c.processed  //&& c.legs % i == 0
         }
         option match {
           case Some(x) =>
             x.update(z => {
-              z.processed.set(true)
-            })
+              z.processed = true
+            })(i)
             val legs = x.get(z => z.legs)
-            insert(Dog(legs))
+            insert(new Dog(legs))
           case None =>
         }
         commit(i)
