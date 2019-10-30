@@ -25,7 +25,7 @@ class TxInsertionSpec extends FlatSpec with Matchers {
             z.processed = true
           })
           val legs = cat.get(z => z.legs)
-          insert(new Dog(legs))
+          insert(Dog(legs))
         })
 
         commit
@@ -43,7 +43,7 @@ class TxInsertionSpec extends FlatSpec with Matchers {
       }
       cats.foreach(c => {
         c.update(z => z.processed = true)
-        insert(new Dog(c.get(f => f.legs)))
+        insert(Dog(c.get(f => f.legs)))
       })
 
       commit

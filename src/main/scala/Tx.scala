@@ -7,14 +7,14 @@ class Tx(body: Tx => Unit, storage: Storage) {
   def queryAll[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Seq[NodeTracker[T]] = {
     collection(storage)
       .withFilter(z => z.test(predicate))
-      .map(z => new NodeTracker(z))
+      .map(z => NodeTracker(z))
   }
 
   def queryOne[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Option[NodeTracker[T]] = {
     collection(storage)
       .withFilter(z => z.test(predicate))
       .map(z => {
-        new NodeTracker(z)
+         NodeTracker(z)
       }).headOption
   }
 
@@ -23,7 +23,7 @@ class Tx(body: Tx => Unit, storage: Storage) {
   }
 
   def insert[T <: TCloneable[T]](newVal: T): Unit = {
-    state = new Node(newVal, null, null, null, 0, 0) :: state
+    state = Node(newVal, null, null, null, 0, 0) :: state
   }
 
   def run(): Unit = body(this)

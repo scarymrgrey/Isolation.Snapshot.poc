@@ -11,12 +11,11 @@ case class Storage(cats: ArrayBuffer[Node[Cat]], dogs: ArrayBuffer[Node[Dog]]) {
 
   private def refreshVersion[T <: TCloneable[T]](el: Node[T]): Unit = {
     el.branchFrom.next = el
-    el.branchFrom = null
     el.collection(el.index) = el
   }
 
   private def insert[T <: TCloneable[T]](newVal: Node[T]): Unit = {
-    val coll = (newVal.get(z => z) match {
+    val coll = (newVal.get(z => z) match { // TODO: Generic pattern matching
       case _: Cat =>
         cats
       case _: Dog =>

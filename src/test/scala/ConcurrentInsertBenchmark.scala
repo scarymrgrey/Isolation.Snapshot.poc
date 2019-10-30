@@ -6,7 +6,6 @@ import org.scalameter.{Key, config}
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, ExecutionContext, Future}
 
-
 object ConcurrentInsertBenchmark extends LocalTime {
   def runInsert(): Unit = {
     implicit val s: Storage = TestAux.initStorage
@@ -18,7 +17,7 @@ object ConcurrentInsertBenchmark extends LocalTime {
     val tasksCats = for (i <- 1 to numJobs) yield Future {
       Tx { implicit tx =>
 
-        insert(new Cat(i))
+        insert(Cat(i))
 
         val option = queryOne(_.cats) { c =>
           !c.processed
@@ -29,7 +28,7 @@ object ConcurrentInsertBenchmark extends LocalTime {
               z.processed = true
             })
             val legs = x.get(z => z.legs)
-            insert(new Dog(legs))
+            insert(Dog(legs))
           case None =>
         }
         commit

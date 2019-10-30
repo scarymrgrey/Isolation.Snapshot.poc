@@ -1,33 +1,27 @@
-
 import java.util.concurrent.{Executors, TimeUnit}
-
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, ExecutionContext, ExecutionContextExecutor, Future}
 import TransactionAux._
-
 import scala.collection.mutable.ArrayBuffer
 
-class Cat(var legs: Int) extends TCloneable[Cat] {
-  @volatile var processed = false
-  val uuid = java.util.UUID.randomUUID.toString.take(4)
+case class Cat(var legs: Int) extends TCloneable[Cat] {
+  var processed = false
 
-  override def doClone(): Cat = new Cat(legs)
-
-  override def toString: String = s"cat($legs,$processed)@$uuid"
+  override def doClone(): Cat = Cat(legs)
 }
 
-class Dog(var tails: Int) extends TCloneable[Dog] {
-  override def doClone(): Dog = new Dog(tails)
+case class Dog(var tails: Int) extends TCloneable[Dog] {
+  override def doClone(): Dog = Dog(tails)
 }
 
 object Main extends App {
   def start(): Unit = {
 
-    val cat = new Node(new Cat(0), null, null, null, 0, 0)
+    val cat =  Node( Cat(0), null, null, null, 0, 0)
     val cats = ArrayBuffer(cat)
     cat.collection = cats
 
-    val dog = new Node(new Dog(0), null, null, null, 0, 0)
+    val dog =  Node( Dog(0), null, null, null, 0, 0)
     val dogs: ArrayBuffer[Node[Dog]] = ArrayBuffer(dog)
     dog.collection = dogs
     implicit val s: Storage = Storage(cats, dogs)

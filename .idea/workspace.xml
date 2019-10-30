@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="626f25b6-f2f1-415f-9517-6a2a83999602" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Node.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Node.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/NodeTracker.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/NodeTracker.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Storage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Storage.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Tx.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Tx.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/TxInsertionSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/TxInsertionSpec.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="ScalaTest.TxInsertionSpec.Transaction should update and insert entities concurrently">
+  <component name="RunManager" selected="Application.ConcurrentInsertBenchmark">
     <configuration name="ConcurrentInsertBenchmark" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ConcurrentInsertBenchmark" />
       <module name="SnapshotIsolationSample" />
@@ -83,8 +82,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="ScalaTest.TxInsertionSpec.Transaction should update and insert entities concurrently" />
         <item itemvalue="Application.ConcurrentInsertBenchmark" />
+        <item itemvalue="ScalaTest.TxInsertionSpec.Transaction should update and insert entities concurrently" />
       </list>
     </recent_temporary>
   </component>
