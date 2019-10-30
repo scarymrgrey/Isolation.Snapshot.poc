@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e7af177-fd7c-4594-81bd-dd68a6827b14" name="Default Changelist" comment="">
+    <list default="true" id="626f25b6-f2f1-415f-9517-6a2a83999602" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/TestAux.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/TestAux.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Storage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Storage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Tx.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Tx.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,12 +32,13 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1SZ40MJEFBYgsRKF86KYG30F19d" />
+  <component name="ProjectId" id="1SvMQq44e25tdlk9D9jovDYBIbV" />
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.scala.settings.ScalaProjectSettingsConfigurable" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -53,53 +60,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="SnapshotIsolationSample" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ExampleSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="SnapshotIsolationSample" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="testKind" value="Class" />
-      <option name="envs">
-        <map />
-      </option>
-      <option name="javaOptions" value="" />
-      <option name="jrePath" />
-      <option name="searchTest" value="Across module dependencies" />
-      <option name="showProgressMessages" value="true" />
-      <option name="testArgs" value="" />
-      <option name="testClassPath" value="ExampleSpec" />
-      <option name="useSbt" value="false" />
-      <option name="useUiWithSbt" value="false" />
-      <option name="workingDirectory" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ExampleSpec.A Stack should pop values in last-in-first-out order" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="SnapshotIsolationSample" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="testKind" value="Class" />
-      <option name="envs">
-        <map />
-      </option>
-      <option name="javaOptions" value="" />
-      <option name="jrePath" />
-      <option name="searchTest" value="Across module dependencies" />
-      <option name="showProgressMessages" value="true" />
-      <option name="testArgs" value="" />
-      <option name="testClassPath" value="ExampleSpec" />
-      <option name="useSbt" value="false" />
-      <option name="useUiWithSbt" value="false" />
-      <option name="workingDirectory" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TxInsertionSpec.Transaction should update and insert entities concurrently" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="SnapshotIsolationSample" />
       <option name="allowRunningInParallel" value="false" />
@@ -116,7 +76,7 @@
       <option name="testName" value="Transaction should update and insert entities concurrently" />
       <option name="useSbt" value="false" />
       <option name="useUiWithSbt" value="false" />
-      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <option name="workingDirectory" value="C:\Users\Scary\Documents\Sources\scala\Isolation.Snapshot.poc" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,9 +85,6 @@
       <list>
         <item itemvalue="ScalaTest.TxInsertionSpec.Transaction should update and insert entities concurrently" />
         <item itemvalue="Application.ConcurrentInsertBenchmark" />
-        <item itemvalue="ScalaTest.ExampleSpec" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="ScalaTest.ExampleSpec.A Stack should pop values in last-in-first-out order" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +101,7 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="snapshotisolationsample [file:/Users/kpolunin/Downloads/SnapshotIsolationSample/]" />
+                <option name="name" value="isolation-snapshot-poc [file:/C:/Users/Scary/Documents/Sources/scala/Isolation.Snapshot.poc/]" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
@@ -158,35 +115,20 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4715266785675" />
+        <entry key="$PROJECT_DIR$" value="4717318930545" />
         <entry key="$PROJECT_DIR$/build.sbt" value="2828899981" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="3724303870" />
-        <entry key="$PROJECT_DIR$/project/plugins.sbt" value="54249753" />
+        <entry key="$PROJECT_DIR$/project/plugins.sbt" value="0" />
       </map>
     </option>
     <option name="projectSyncType">
       <map>
-        <entry key="$USER_HOME$/Documents/scala/SnapshotIsolationSample" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../Inventory-App-master" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../activate-master" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../apache-spark-sql-fast-data-handling-streaming/04/module 3/section 2/FraudDetector" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../apache-spark-sql-fast-data-handling-streaming/06/module 5/KafkaTxLogProducer" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../apache-spark-sql-fast-data-handling-streaming/06/module 5/final for module4/FraudDetector" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../barneshut" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../calculator" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../coursera-scala-capstone-master" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../example" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../example-2" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../example-3" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../kmeans" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../observatory" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../quickcheck" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../reductions" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../scalashop" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../stackoverflow" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../streams" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../timeusage" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../wikipedia" value="PREVIEW" />
+        <entry key="C:/Games/goose/scala-goose-game" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../goose-kata-master/goose-kata-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/Isolation.Snapshot.poc-master/Isolation.Snapshot.poc-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/forcomp/forcomp" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/objsets/objsets" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/patmat/patmat" value="PREVIEW" />
       </map>
     </option>
   </component>
@@ -195,11 +137,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1e7af177-fd7c-4594-81bd-dd68a6827b14" name="Default Changelist" comment="" />
-      <created>1571757559781</created>
+      <changelist id="626f25b6-f2f1-415f-9517-6a2a83999602" name="Default Changelist" comment="" />
+      <created>1572439602092</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571757559781</updated>
+      <updated>1572439602092</updated>
     </task>
     <servers />
   </component>
@@ -215,21 +157,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala</url>
-          <line>20</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

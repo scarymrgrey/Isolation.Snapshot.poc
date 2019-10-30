@@ -23,7 +23,7 @@ class Tx(body: Tx => Unit, storage: Storage) {
   }
 
   def insert[T <: TCloneable[T]](newVal: T): Unit = {
-    state = new Node(newVal, null, null, null, -1, 0) :: state
+    state = new Node(newVal, null, null, null, 0, 0) :: state
   }
 
   def run(): Unit = body(this)
@@ -32,15 +32,14 @@ class Tx(body: Tx => Unit, storage: Storage) {
     var resetTx = false
     storage.synchronized {
       for (el <- state) {
-        if (el.index != -1 && el.branchFrom.next != null) {
+        if (el.branchFrom != null && el.branchFrom.next != null) {
           state = List()
           resetTx = true
         }
       }
       if (!resetTx) {
         state.foreach {
-          el =>
-            storage.refreshVersion(el.asInstanceOf[Node[T]])
+          el => storage.merge(el.asInstanceOf[Node[T]])
         }
       }
     }

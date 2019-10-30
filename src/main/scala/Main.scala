@@ -65,7 +65,7 @@ object Main extends App {
     }(ec2)
 
     val tasks = tasksCats ++ tasksDogs
-    val aggregated = Future.sequence(tasks) //(ec1)
+    val aggregated = Future.sequence(tasks)
     Await.result(aggregated, Duration(15, TimeUnit.SECONDS))
 
     Tx { implicit tx =>

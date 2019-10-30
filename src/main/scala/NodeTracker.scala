@@ -6,5 +6,6 @@ class NodeTracker[T <: TCloneable[T]](var node: Node[T]) {
   }
 
   def get[Z](prop: T => Z): Z = node.get(prop)
+
 }
 
