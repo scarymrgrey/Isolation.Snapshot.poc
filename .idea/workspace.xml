@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1e7af177-fd7c-4594-81bd-dd68a6827b14" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Node.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Node.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/TransactionAux.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Tx.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Tx.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/TxInsertionSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/TxInsertionSpec.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/TestAux.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/TestAux.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -223,12 +221,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala</url>
-          <line>17</line>
+          <line>15</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/test/scala/ConcurrentInsertBenchmark.scala</url>
-          <line>22</line>
+          <line>20</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

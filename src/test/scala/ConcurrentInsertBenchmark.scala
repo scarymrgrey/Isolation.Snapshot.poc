@@ -1,10 +1,8 @@
 import java.util.concurrent.{Executors, TimeUnit}
-
 import TransactionAux.{commit, insert, queryOne, queryAll}
 import org.scalameter.Bench.LocalTime
 import org.scalameter.Warmer.Default
 import org.scalameter.{Key, config}
-
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, ExecutionContext, Future}
 
@@ -23,7 +21,7 @@ object ConcurrentInsertBenchmark extends LocalTime {
         insert(new Cat(i))
 
         val option = queryOne(_.cats) { c =>
-          !c.processed //&& c.legs % i == 0
+          !c.processed
         }
         option match {
           case Some(x) =>

@@ -1,5 +1,3 @@
-import java.util.concurrent.atomic.AtomicReference
-
 import scala.collection.mutable.ArrayBuffer
 
 case class Storage(cats: ArrayBuffer[Node[Cat]], dogs: ArrayBuffer[Node[Dog]]) {
