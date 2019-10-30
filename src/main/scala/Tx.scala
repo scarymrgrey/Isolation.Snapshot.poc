@@ -14,7 +14,7 @@ class Tx(body: Tx => Unit, storage: Storage) {
     collection(storage)
       .withFilter(z => z.test(predicate))
       .map(z => {
-         NodeTracker(z)
+        NodeTracker(z)
       }).headOption
   }
 
