@@ -1,3 +1,5 @@
+import java.util.concurrent.locks.{Lock, ReentrantLock}
+
 import scala.collection.mutable.ArrayBuffer
 
 case class Node[T <: TCloneable[T]](value: T,
@@ -6,6 +8,9 @@ case class Node[T <: TCloneable[T]](value: T,
                                     var collection: ArrayBuffer[Node[T]],
                                     var index: Int,
                                     v: Int) {
+
+
+  val lock: Lock = new ReentrantLock()
 
   def update(upd: T => Unit): Node[T] = {
     val newVal = value.doClone()

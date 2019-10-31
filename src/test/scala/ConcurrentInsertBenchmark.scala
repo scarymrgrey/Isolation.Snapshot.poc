@@ -9,7 +9,7 @@ import scala.concurrent.{Await, ExecutionContext, Future}
 object ConcurrentInsertBenchmark extends LocalTime {
   def runInsert(): Unit = {
     implicit val s: Storage = TestAux.initStorage
-    val numJobs = 30000
+    val numJobs = 50000
     val numThreads = 8
 
     implicit val ec1 = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
@@ -37,7 +37,7 @@ object ConcurrentInsertBenchmark extends LocalTime {
 
     val tasks = tasksCats
     val aggregated = Future.sequence(tasks)
-    Await.result(aggregated, Duration(20, TimeUnit.SECONDS))
+    Await.result(aggregated, Duration(60, TimeUnit.SECONDS))
   }
 
   val standardConfig = config(
