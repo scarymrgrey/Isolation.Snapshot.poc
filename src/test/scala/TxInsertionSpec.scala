@@ -18,8 +18,13 @@ class TxInsertionSpec extends FlatSpec with Matchers {
 
         insert(Cat(i))
 
+        val delimiter = {
+          val x = i % 16
+          if (x != 0) x else 1
+        }
+
         queryOne(_.cats) { c =>
-          !c.processed
+          !c.processed && c.legs % delimiter == 0
         }.foreach(cat => {
           cat.update(z => {
             z.processed = true
@@ -43,7 +48,7 @@ class TxInsertionSpec extends FlatSpec with Matchers {
       }
       cats.foreach(c => {
         c.update(z => z.processed = true)
-        insert(Dog(c.get(f => f.legs)))
+        //insert(Dog(c.get(f => f.legs)))
       })
 
       commit

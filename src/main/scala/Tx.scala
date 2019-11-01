@@ -19,11 +19,11 @@ class Tx(body: Tx => Unit, storage: Storage) {
   }
 
   def store(n: Node[_]): Unit = {
-    state = (n :: state).sortBy(z => z.index)
+    state = n :: state
   }
 
   def insert[T <: TCloneable[T]](newVal: T): Unit = {
-    state = (Node(newVal, null, null, null, 0, 0) :: state).sortBy(z => z.index)
+    state = Node(newVal, null, null, null, 0, 0) :: state
   }
 
   def run(): Unit = body(this)
@@ -37,6 +37,9 @@ class Tx(body: Tx => Unit, storage: Storage) {
           if (!locked || el.branchFrom.next != null) {
             state = List()
             resetTx = true
+            Tx.restarts = Tx.restarts + 1
+            //println("reset: " + Tx.restarts)
+
             break
           }
         }
@@ -46,9 +49,6 @@ class Tx(body: Tx => Unit, storage: Storage) {
       state.foreach {
         el => storage.merge(el.asInstanceOf[Node[T]])
       }
-      state.foreach(el => {
-        el.collection(el.index).unlock()
-      })
     }
 
     if (resetTx)
@@ -59,4 +59,6 @@ class Tx(body: Tx => Unit, storage: Storage) {
 
 object Tx {
   def apply(query: Tx => Unit)(implicit storage: Storage): Unit = new Tx(query, storage).run()
+
+  var restarts = 0
 }
