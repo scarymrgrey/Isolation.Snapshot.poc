@@ -9,7 +9,7 @@ class TxInsertionSpec extends FlatSpec with Matchers {
   "Transaction" should "update and insert entities concurrently" in {
     implicit val s: Storage = TestAux.initStorage
     val numJobs = 50000
-    val numThreads = 2
+    val numThreads = 8
 
     implicit val ec1: ExecutionContextExecutor = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
 

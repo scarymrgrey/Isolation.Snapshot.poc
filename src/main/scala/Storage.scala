@@ -21,11 +21,11 @@ case class Storage(cats: ArrayBuffer[Node[Cat]], dogs: ArrayBuffer[Node[Dog]]) {
       case _: Dog =>
         dogs
     }).asInstanceOf[ArrayBuffer[Node[T]]]
-    //coll.synchronized{
+    coll.synchronized{
       newVal.collection = coll
       newVal.index = coll.length
       coll += newVal
-    //}
+    }
   }
 
 }
