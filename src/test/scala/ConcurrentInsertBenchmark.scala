@@ -10,7 +10,7 @@ object ConcurrentInsertBenchmark extends LocalTime {
   def runInsert(): Unit = {
     implicit val s: Storage = TestAux.initStorage
     val numJobs = 50000
-    val numThreads = 8
+    val numThreads = 1
 
     implicit val ec1 = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
 

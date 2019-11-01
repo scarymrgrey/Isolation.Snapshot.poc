@@ -8,15 +8,15 @@ class TxInsertionSpec extends FlatSpec with Matchers {
 
   "Transaction" should "update and insert entities concurrently" in {
     implicit val s: Storage = TestAux.initStorage
-    val numJobs = 10000
-    val numThreads = 8
+    val numJobs = 50000
+    val numThreads = 2
 
     implicit val ec1: ExecutionContextExecutor = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(numThreads))
 
     val tasksCats = for (i <- 1 to numJobs) yield Future {
       Tx { implicit tx =>
 
-        insert(new Cat(i))
+        insert(Cat(i))
 
         queryOne(_.cats) { c =>
           !c.processed
@@ -34,7 +34,7 @@ class TxInsertionSpec extends FlatSpec with Matchers {
 
     val tasks = tasksCats
     val aggregated = Future.sequence(tasks)
-    Await.result(aggregated, Duration(20, TimeUnit.SECONDS))
+    Await.result(aggregated, Duration(100, TimeUnit.SECONDS))
 
     Tx { implicit tx: Tx =>
 

@@ -1,4 +1,4 @@
-import java.util.concurrent.locks.{Lock, ReentrantLock}
+import java.util.concurrent.locks.{Lock, ReadWriteLock, ReentrantLock, ReentrantReadWriteLock}
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -10,7 +10,7 @@ case class Node[T <: TCloneable[T]](value: T,
                                     v: Int) {
 
 
-  val lock: Lock = new ReentrantLock()
+  private var locked = false
 
   def update(upd: T => Unit): Node[T] = {
     val newVal = value.doClone()
@@ -22,6 +22,20 @@ case class Node[T <: TCloneable[T]](value: T,
 
   def test(predicate: T => Boolean): Boolean = predicate(value)
 
+  def tryLock(): Boolean = {
+    this.synchronized {
+      if (!locked) {
+        locked = true
+        locked
+      }
+      else
+        false
+    }
+  }
+
+  def unlock(): Unit = {
+    locked = false
+  }
 }
 
 

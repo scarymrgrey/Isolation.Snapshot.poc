@@ -1,4 +1,5 @@
 import scala.collection.mutable.ArrayBuffer
+import util.control.Breaks._
 
 class Tx(body: Tx => Unit, storage: Storage) {
 
@@ -13,9 +14,8 @@ class Tx(body: Tx => Unit, storage: Storage) {
   def queryOne[T <: TCloneable[T]](collection: Storage => ArrayBuffer[Node[T]], predicate: T => Boolean): Option[NodeTracker[T]] = {
     collection(storage)
       .withFilter(z => z.test(predicate))
-      .map(z => {
-        NodeTracker(z)
-      }).headOption
+      .map(z => NodeTracker(z))
+      .headOption
   }
 
   def store(n: Node[_]): Unit = {
@@ -30,22 +30,27 @@ class Tx(body: Tx => Unit, storage: Storage) {
 
   def commit[T <: TCloneable[T]](): Unit = {
     var resetTx = false
-
-
     for (el <- state) {
-      val locked = el.collection(el.index).lock.tryLock()
-
-      if (!locked || (el.branchFrom != null && el.branchFrom.next != null)) {
-        state = List()
-        resetTx = true
+      breakable {
+        if (el.branchFrom != null) {
+          val locked = el.collection(el.index).tryLock()
+          if (!locked || el.branchFrom.next != null) {
+            state = List()
+            resetTx = true
+            break
+          }
+        }
       }
     }
     if (!resetTx) {
       state.foreach {
         el => storage.merge(el.asInstanceOf[Node[T]])
       }
+      state.foreach(el => {
+        el.collection(el.index).unlock()
+      })
     }
-    state.foreach(z => z.collection(z.index).lock.unlock())
+
     if (resetTx)
       run()
   }
