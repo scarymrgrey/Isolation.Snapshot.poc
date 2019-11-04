@@ -9,8 +9,7 @@ case class Node[T <: TCloneable[T]](value: T,
                                     var index: Int,
                                     v: Int) {
 
-
-  @volatile private var locked = false
+  private var locked = false
 
   def update(upd: T => Unit): Node[T] = {
     val newVal = value.doClone()

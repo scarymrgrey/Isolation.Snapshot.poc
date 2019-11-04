@@ -48,7 +48,7 @@ class TxInsertionSpec extends FlatSpec with Matchers {
       }
       cats.foreach(c => {
         c.update(z => z.processed = true)
-        //insert(Dog(c.get(f => f.legs)))
+        insert(Dog(c.get(f => f.legs)))
       })
 
       commit
