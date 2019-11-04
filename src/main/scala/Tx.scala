@@ -37,9 +37,6 @@ class Tx(body: Tx => Unit, storage: Storage) {
           if (!locked || el.branchFrom.next != null) {
             state = List()
             resetTx = true
-            Tx.restarts = Tx.restarts + 1
-            //println("reset: " + Tx.restarts)
-
             break
           }
         }
@@ -59,6 +56,4 @@ class Tx(body: Tx => Unit, storage: Storage) {
 
 object Tx {
   def apply(query: Tx => Unit)(implicit storage: Storage): Unit = new Tx(query, storage).run()
-
-  var restarts = 0
 }
